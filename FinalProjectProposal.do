@@ -49,11 +49,24 @@ save "/Users/kmpiekarski/Sites/GSR708/marriage-income_sample.dta", replace
 use "/Users/kmpiekarski/Sites/GSR708/marriage-income_sample.dta", clear
 **** Table 1: Descriptive Statistics
 
+su CONRINC, detail
+tab HAPMAR
+tab SATFIN
+
 **** Table 2:  Pairwise Correlation
+
+pwcorr CONRINC HAPMAR SATFIN, obs sig
+
 
 **** Table 3: Regression (binary required – Model1, multi-variable linear regression models – optional)
 
-
-
+reg CONRINC HAPMAR SATFIN
 
 **** Optional: t-test; ANOVA test
+
+** t-test
+ttest CONRINC, by(SEX)
+
+** ANOVA test
+oneway CONRINC HAPMAR, bonferroni
+oneway CONRINC SATFIN, bonferroni
