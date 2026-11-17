@@ -1,10 +1,19 @@
 clear
 set more off
+
+/*
 use "/Users/kmpiekarski/Sites/GSR708/marriage-income.dta"
+*/
 
 describe
 
-**** Clean Data
+/*
+DV: HAPMAR categorical
+IV: CONRINC continuous
+CV: SATFIN categorical
+*/
+
+**** Clean Data /*
 tab HAPMAR, missing
 drop if missing(HAPMAR)
 
@@ -26,6 +35,18 @@ drop if missing(DEGREE)
 save "/Users/kmpiekarski/Sites/GSR708/marriage-income_clean.dta", replace
 use "/Users/kmpiekarski/Sites/GSR708/marriage-income_clean.dta", clear
 
+
+**** Select 1000 random samples of total data population
+set seed 12345
+sample 1000
+
+**** save sample data
+save "/Users/kmpiekarski/Sites/GSR708/marriage-income_sample.dta", replace
+
+*/ 
+
+**** load sample data
+use "/Users/kmpiekarski/Sites/GSR708/marriage-income_sample.dta", clear
 **** Table 1: Descriptive Statistics
 
 **** Table 2:  Pairwise Correlation
