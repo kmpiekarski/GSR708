@@ -33,8 +33,9 @@ tab DEGREE, missing
 drop if missing(DEGREE)
 
 save "/Users/kmpiekarski/Sites/GSR708/marriage-income_clean.dta", replace
+*/
 use "/Users/kmpiekarski/Sites/GSR708/marriage-income_clean.dta", clear
-
+/*
 
 **** Select 1000 random samples of total data population
 set seed 12345
@@ -46,7 +47,7 @@ save "/Users/kmpiekarski/Sites/GSR708/marriage-income_sample.dta", replace
 */ 
 
 **** load sample data
-use "/Users/kmpiekarski/Sites/GSR708/marriage-income_sample.dta", clear
+// use "/Users/kmpiekarski/Sites/GSR708/marriage-income_sample.dta", clear
 **** Table 1: Descriptive Statistics
 
 su CONRINC, detail
